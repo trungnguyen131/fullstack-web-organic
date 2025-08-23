@@ -1,0 +1,69 @@
+<div class="main-content">
+  <div class="section-content section-content-p30">
+
+    <h4>Category: {{ currentCategoryName }}</h4>
+    <hr>
+    
+    <div class="container-fluid">
+      <div class="row">
+
+        <div *ngFor="let tempProduct of products" class="col-md-3">
+          <div class="product-box">
+
+            <a routerLink="/products/{{ tempProduct.id }}">
+              <img width="120px" height="120px" src="{{ tempProduct.imageUrl }}" alt="" class="img-responsive">
+            </a>
+            <br />
+
+            <a style="text-decoration: none;" routerLink="/products/{{ tempProduct.id }}">
+              <h1>{{ tempProduct.name }}</h1>
+            </a>
+
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div class="text-success fw-bold">{{ tempProduct.unitPrice | currency:'VND'}}</div>
+              <button style="margin-right: 80px;" (click)="addToCart(tempProduct)" class="btn btn-danger btn-sm"><i class="fa-solid fa-plus"></i> Add to cart</button>
+            </div>
+          </div>
+        </div>        
+
+        <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+          No products found.
+        </div>
+
+        <div class="footer-pagination">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-md-9" style="padding-left: 20%;">
+                  <ngb-pagination [(page)]="thePageNumber"
+                                  [pageSize]="thePageSize"
+                                  [maxSize]="5"
+                                  [boundaryLinks]="true"
+                                  [collectionSize]="theTotalElements"
+                                  (pageChange)="listProduct()">
+
+                  </ngb-pagination>
+                </div>
+
+                <div class="col-md-3 mt-2" style="text-align: right;">
+                  <span class="mr-2">Page Size</span>
+
+                  <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+                    <option value="2">2</option>
+                    <option selected="true" value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                  </select>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
