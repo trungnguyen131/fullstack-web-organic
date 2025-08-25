@@ -1,5 +1,5 @@
-CREATE USER 'ecommerceapp'@'localhost' IDENTIFIED BY 'ecommerceapp';
+CREATE USER 'organicfruitapp'@'localhost' IDENTIFIED BY 'organicfruitapp';
 
-GRANT ALL PRIVILEGES ON * . * TO 'ecommerceapp'@'localhost';
+GRANT ALL PRIVILEGES ON * . * TO 'organicfruitapp'@'localhost';
 
-ALTER USER 'ecommerceapp'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ecommerceapp';
+ALTER USER 'organicfruitapp'@'localhost' IDENTIFIED BY 'organicfruitapp';
