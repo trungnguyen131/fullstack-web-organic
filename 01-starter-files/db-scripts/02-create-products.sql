@@ -1,14 +1,8 @@
--- -----------------------------------------------------
--- Schema full-stack-ecommerce
--- -----------------------------------------------------
 DROP SCHEMA IF EXISTS `full-stack-organicfruitapp`;
 
 CREATE SCHEMA `full-stack-organicfruitapp`;
 USE `full-stack-organicfruitapp` ;
 
--- -----------------------------------------------------
--- Table `full-stack-ecommerce`.`product_category`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `full-stack-organicfruitapp`.`product_category` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `category_name` VARCHAR(255) NULL DEFAULT NULL,
@@ -16,9 +10,6 @@ CREATE TABLE IF NOT EXISTS `full-stack-organicfruitapp`.`product_category` (
 ENGINE=InnoDB
 AUTO_INCREMENT = 1;
 
--- -----------------------------------------------------
--- Table `full-stack-ecommerce`.`product`
--- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `full-stack-organicfruitapp`.`product` (
   `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
   `sku` VARCHAR(255) DEFAULT NULL,
@@ -39,14 +30,11 @@ ENGINE=InnoDB
 AUTO_INCREMENT = 1;
 
 
--- -----------------------------------------------------
--- Add sample data
--- -----------------------------------------------------
-
 INSERT INTO product_category(category_name) VALUES ('FRUITS');
 
 INSERT INTO product (sku, name, description, image_url, active, units_in_stock,
 unit_price, category_id, date_created)
+
 VALUES ('BOOK-TECH-1000', 'JavaScript - The Fun Parts', 'Learn JavaScript',
 'assets/images/products/placeholder.png'
 ,1,100,19.99,1, NOW());
